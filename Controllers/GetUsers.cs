@@ -1,12 +1,12 @@
 namespace Taskms.Api.Controllers;
 
-[Route("api/TaskMS")]
+[Route("api/Users")]
 [ApiController]
-public class TaskMSController : ControllerBase
+public class UsersController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
 
-    public TaskMSController(ApplicationDbContext db)
+    public UsersController(ApplicationDbContext db)
     {
         _db = db;
     }
