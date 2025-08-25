@@ -1,6 +1,6 @@
 @Taskms.Api_HostAddress = http://localhost:5185
 
-GET {{Taskms.Api_HostAddress}}/weatherforecast/
+GET {{Taskms.Api_HostAddress}}/api/TaskMS
 Accept: application/json
 
 ###
