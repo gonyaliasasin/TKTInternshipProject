@@ -1,4 +1,4 @@
-namespace Taskms.Api.Models.Tables;
+namespace Taskms.Api.Models.Entitys;
 
 public class Department : BaseEntity
 {
