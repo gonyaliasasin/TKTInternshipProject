@@ -13,9 +13,10 @@ public class TaskMSController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
     {
-        IEnumerable<User> userList = await _db.Users.ToListAsync();
-        return Ok(userList);
+        IEnumerable<User> userList = await _db.Users.Include(u => u.Department).ToListAsync();
+        var userDTOs = userList.Select(u => UserMapper.ToDTO(u, u.Department)).ToList();
+        return Ok(userDTOs);
     }
 }

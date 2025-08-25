@@ -40,7 +40,7 @@ namespace Taskms.Api.Data
                 {
                     Id = Guid.Parse("954f60ae-b788-4bc2-b2a1-45abb9a8e6fd"),
                     Name = "Mery",
-                    SurName = "Glenn",
+                    Surname = "Glenn",
                     Email = "mary@company.com",
                     Password = "mery1234!",
                     Title = "Human Resources Specialist",
@@ -50,7 +50,7 @@ namespace Taskms.Api.Data
                 {
                     Id = Guid.Parse("86dfdcd5-bd0e-4d0c-b754-7d36055761cb"),
                     Name = "John",
-                    SurName = "Doe",
+                    Surname = "Doe",
                     Email = "john@company.com",
                     Password = "john4321!",
                     Title = "Sales Department Manager",
