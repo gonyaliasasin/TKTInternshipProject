@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
-
 namespace Taskms.Api.Controllers;
 
 [Route("api/Users")]
@@ -39,7 +37,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<string>> Login([FromBody] UserLoginDTO loginDto)
+    public async Task<ActionResult> Login([FromBody] UserLoginDTO loginDto)
     {
         var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == loginDto.Email && u.Password == loginDto.Password);
 
