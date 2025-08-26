@@ -1,6 +1,6 @@
 namespace Taskms.Api.Controllers;
 
-[Route("api/Users")]
+[Route("Users")]
 [ApiController]
 public class UsersController : ControllerBase
 {

@@ -8,9 +8,9 @@ public static class TaskMapper
         return new TaskItemDTO
         {
             Id = task.Id,
-            CreatedByUserId = task.CreatedByUserId,
-            AssignedDepartmentId = task.AssignedDepartmentId,
-            Status = task.Status,
+            CreatedByUserName = task.CreatedByUser?.Name + " " + task.CreatedByUser?.Surname,
+            AssignedDepartmentName = task.AssignedDepartment?.Name,
+            Status = task.Status.ToString(),
             Title = task.Title,
             Description = task.Description,
             RejectReason = task.RejectReason,
@@ -37,7 +37,7 @@ public static class TaskMapper
     {
         task.Title = dto.Title;
         task.Description = dto.Description;
-        task.Status = dto.Status;
+        task.Status = Enum.Parse<Status>(dto.Status);
         task.AssignedDepartmentId = dto.AssignedDepartmentId;
         task.RejectReason = dto.RejectReason;
     }
