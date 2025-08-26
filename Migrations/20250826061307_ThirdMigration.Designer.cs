@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taskms.Api.Data;
 
@@ -11,9 +12,11 @@ using Taskms.Api.Data;
 namespace Taskms.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250826061307_ThirdMigration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,9 +110,6 @@ namespace Taskms.Api.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
@@ -130,9 +130,18 @@ namespace Taskms.Api.Migrations
                             Email = "mary@company.com",
                             Name = "Mery",
                             Password = "mery1234!",
-                            Role = "Manager",
                             Surname = "Glenn",
                             Title = "Human Resources Manager"
+                        },
+                        new
+                        {
+                            Id = new Guid("86dfdcd5-bd0e-4d0c-b754-7d36055761cb"),
+                            DepartmentId = new Guid("927759d0-61d9-49e9-9f04-48536964b6c9"),
+                            Email = "john@company.com",
+                            Name = "John",
+                            Password = "john1234!",
+                            Surname = "Doe",
+                            Title = "Sales Department Manager"
                         },
                         new
                         {
@@ -141,7 +150,6 @@ namespace Taskms.Api.Migrations
                             Email = "mustafa@company.com",
                             Name = "Mustafa",
                             Password = "mustafa1234!",
-                            Role = "Employee",
                             Surname = "Ocak",
                             Title = "Human Resources Specialist"
                         },
@@ -152,20 +160,8 @@ namespace Taskms.Api.Migrations
                             Email = "sedat@company.com",
                             Name = "Sedat",
                             Password = "sedat1234!",
-                            Role = "Employee",
                             Surname = "Akkuş",
                             Title = "Human Resources Specialist"
-                        },
-                        new
-                        {
-                            Id = new Guid("86dfdcd5-bd0e-4d0c-b754-7d36055761cb"),
-                            DepartmentId = new Guid("927759d0-61d9-49e9-9f04-48536964b6c9"),
-                            Email = "john@company.com",
-                            Name = "John",
-                            Password = "john1234!",
-                            Role = "Manager",
-                            Surname = "Doe",
-                            Title = "Sales Department Manager"
                         },
                         new
                         {
@@ -174,7 +170,6 @@ namespace Taskms.Api.Migrations
                             Email = "ceyda@company.com",
                             Name = "Ceyda",
                             Password = "ceyda1234!",
-                            Role = "Employee",
                             Surname = "Aksaç",
                             Title = "Sales Specialist"
                         },
@@ -185,7 +180,6 @@ namespace Taskms.Api.Migrations
                             Email = "yağizhan@company.com",
                             Name = "Yağizhan",
                             Password = "yağizhan1234!",
-                            Role = "Employee",
                             Surname = "Avci",
                             Title = "Sales Specialist"
                         },
@@ -196,7 +190,6 @@ namespace Taskms.Api.Migrations
                             Email = "semih@company.com",
                             Name = "Semih",
                             Password = "semih1234!",
-                            Role = "Manager",
                             Surname = "Özdoğan",
                             Title = "Marketing Department Manager"
                         },
@@ -207,7 +200,6 @@ namespace Taskms.Api.Migrations
                             Email = "murat@company.com",
                             Name = "Murat",
                             Password = "murat1234!",
-                            Role = "Employee",
                             Surname = "Atalik",
                             Title = "Marketing Specialist"
                         },
@@ -218,7 +210,6 @@ namespace Taskms.Api.Migrations
                             Email = "arya@company.com",
                             Name = "Arya",
                             Password = "arya1234!",
-                            Role = "Employee",
                             Surname = "Açikgöz",
                             Title = "Marketing Specialist"
                         });

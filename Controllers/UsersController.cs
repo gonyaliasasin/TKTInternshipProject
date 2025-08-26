@@ -23,7 +23,8 @@ public class UsersController : ControllerBase
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.Name)
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Role, user.Role)
             }),
             Expires = DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["DurationInMinutes"])),
             Issuer = jwtSettings["Issuer"],
@@ -53,7 +54,12 @@ public class UsersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
     {
-        IEnumerable<User> userList = await _db.Users.Include(u => u.Department).ToListAsync();
+        var userList = await _db.Users
+        .Include(a => a.Department)
+        .OrderBy(u => u.DepartmentId)
+        .ThenBy(u => u.Role == "Manager" ? 0 : 1)
+        .ThenBy(u => u.Name)
+        .ToListAsync();
         var userDTOs = userList.Select(u => UserMapper.ToDTO(u, u.Department)).ToList();
         return Ok(userDTOs);
     }

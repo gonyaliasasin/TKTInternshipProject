@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Routing.Constraints;
+
 namespace Taskms.Api.Mappers;
 
 public class UserMapper
@@ -11,20 +13,8 @@ public class UserMapper
             Surname = user.Surname,
             Email = user.Email,
             Title = user.Title,
-            Department = user.Department.Name
+            Department = user.Department.Name,
+            Role = user.Role
         };
     }
-
-    public static User ToEntity(UserDTO dto, int departmentId)
-    {
-        return new User
-        {
-            Name = dto.Name,
-            Surname = dto.Surname,
-            Email = dto.Email,
-            Title = dto.Title,
-            Department = null!
-        };
-    }
-
 }

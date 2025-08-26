@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taskms.Api.Data;
 
@@ -11,9 +12,11 @@ using Taskms.Api.Data;
 namespace Taskms.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250826064839_FourthMigration")]
+    partial class FourthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,6 +139,17 @@ namespace Taskms.Api.Migrations
                         },
                         new
                         {
+                            Id = new Guid("86dfdcd5-bd0e-4d0c-b754-7d36055761cb"),
+                            DepartmentId = new Guid("927759d0-61d9-49e9-9f04-48536964b6c9"),
+                            Email = "john@company.com",
+                            Name = "John",
+                            Password = "john1234!",
+                            Role = "Manager",
+                            Surname = "Doe",
+                            Title = "Sales Department Manager"
+                        },
+                        new
+                        {
                             Id = new Guid("fbe707f5-4ded-46e9-8f96-499efc03425b"),
                             DepartmentId = new Guid("60bece64-d9fe-4533-a326-08569eaa37df"),
                             Email = "mustafa@company.com",
@@ -155,17 +169,6 @@ namespace Taskms.Api.Migrations
                             Role = "Employee",
                             Surname = "Akkuş",
                             Title = "Human Resources Specialist"
-                        },
-                        new
-                        {
-                            Id = new Guid("86dfdcd5-bd0e-4d0c-b754-7d36055761cb"),
-                            DepartmentId = new Guid("927759d0-61d9-49e9-9f04-48536964b6c9"),
-                            Email = "john@company.com",
-                            Name = "John",
-                            Password = "john1234!",
-                            Role = "Manager",
-                            Surname = "Doe",
-                            Title = "Sales Department Manager"
                         },
                         new
                         {
