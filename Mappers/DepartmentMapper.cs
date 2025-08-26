@@ -1,4 +1,5 @@
 namespace Taskms.Api.Mappers;
+
 public class DepartmentMapper
 {
     public static DepartmentDTO ToDTO(Department department)

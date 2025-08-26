@@ -6,37 +6,15 @@ public class UsersController : ControllerBase
 {
     private readonly ApplicationDbContext _db;
     private readonly IConfiguration _configuration;
+    private readonly IJwtService _jwtService;
 
-    public UsersController(ApplicationDbContext db, IConfiguration configuration)
+    public UsersController(ApplicationDbContext db, IConfiguration configuration, IJwtService jwtService)
     {
         _db = db;
         _configuration = configuration;
+        _jwtService = jwtService;
     }
-    private string GenerateJwtToken(User user)
-    {
-        var jwtSettings = _configuration.GetSection("Jwt");
-        var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings["Key"]));
-
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.Name),
-                new Claim(ClaimTypes.Role, user.Role)
-            }),
-            Expires = DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["DurationInMinutes"])),
-            Issuer = jwtSettings["Issuer"],
-            Audience = jwtSettings["Audience"],
-            SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
-        };
-
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
-    }
-
+    
     [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDTO loginDto)
     {
@@ -45,10 +23,10 @@ public class UsersController : ControllerBase
         if (user == null)
             return Unauthorized("Email or password incorrect");
 
-        var token = GenerateJwtToken(user);
-        return Ok(new { token = token });
+        var token = _jwtService.GenerateToken(user);
+        return Ok(new { token });
     }
-    
+
     [HttpGet("Users")]
     [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]

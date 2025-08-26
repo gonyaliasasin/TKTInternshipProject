@@ -1,4 +1,4 @@
-namespace Taskms.Api.Models.Entitys;
+namespace Taskms.Api.Models.Entities;
 
 public class TaskItem : BaseEntity
 {
@@ -10,7 +10,7 @@ public class TaskItem : BaseEntity
 
     public Guid CreatedByUserId { get; set; }
     public User CreatedByUser { get; set; }
-    
+
     public Guid AssignedDepartmentId { get; set; }
     public Department AssignedDepartment { get; set; }
 }

@@ -1,8 +1,7 @@
-namespace Taskms.Api.Models.DTOs
+namespace Taskms.Api.Models.DTOs;
+
+public class DepartmentDTO
 {
-    public class DepartmentDTO
-    {
-        public Guid Id { get; set; } 
-        public string Name { get; set; }
-    }
+    public Guid Id { get; set; } 
+     public string Name { get; set; }
 }

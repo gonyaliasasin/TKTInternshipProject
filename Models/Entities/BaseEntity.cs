@@ -1,4 +1,4 @@
-namespace Taskms.Api.Models.Entitys;
+namespace Taskms.Api.Models.Entities;
 
 public abstract class BaseEntity
 {
