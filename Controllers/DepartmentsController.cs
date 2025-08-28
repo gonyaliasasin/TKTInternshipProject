@@ -11,7 +11,7 @@ public class DepartmentsController : ControllerBase
         _db = db;
     }
 
-    [HttpGet]
+    [HttpGet("All")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<DepartmentDTO>>> GetDepartments()
     {

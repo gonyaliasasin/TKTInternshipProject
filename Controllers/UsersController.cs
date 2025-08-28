@@ -15,7 +15,7 @@ public class UsersController : ControllerBase
         _jwtService = jwtService;
     }
     
-    [HttpPost("login")]
+    [HttpPost("Login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDTO loginDto)
     {
         var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == loginDto.Email && u.Password == loginDto.Password);
