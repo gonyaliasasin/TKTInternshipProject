@@ -16,9 +16,9 @@ public class TasksController : ControllerBase
         _jwtService = jwtService;
     }
 
-    [HttpGet("Tasks")]
+    [HttpGet("All")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<IEnumerable<TaskItemDTO>>> GetTasks()
+    public async Task<ActionResult<IEnumerable<TaskItemDTO>>> All()
     {
         var taskList = await _db
         .Tasks.Include(t => t.CreatedByUser)
@@ -28,4 +28,30 @@ public class TasksController : ControllerBase
         return Ok(taskDTOs);
     }
 
+    [HttpPost("CreateTask")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult> Create([FromBody] TaskCreateDTO createDto)
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+        var userId = Guid.Parse(userIdClaim.Value);
+        var department = await _db.Departments.FirstOrDefaultAsync(d => d.Name.ToLower() == createDto.AssignedDepartmentName.ToLower());
+
+        if (department == null)
+            return NotFound($"Department '{createDto.AssignedDepartmentName}' not found.");
+        if (createDto.Title == null || createDto.Description == null)
+            return BadRequest("Title and Description are required.");
+        var taskEntity = TaskMapper.ToEntity(createDto, userId, department.Id);
+
+        _db.Tasks.Add(taskEntity);
+        await _db.SaveChangesAsync();
+
+        return Created();
+    }
+
+    // [HttpPatch("UpdateTask/{id}")]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    // [ProducesResponseType(StatusCodes.Status204NoContent)]
 }

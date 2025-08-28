@@ -1,6 +1,6 @@
 namespace Taskms.Api.Controllers;
 
-[Route("api/Departments")]
+[Route("Departments")]
 [ApiController]
 public class DepartmentsController : ControllerBase
 {

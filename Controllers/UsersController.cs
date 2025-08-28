@@ -27,7 +27,7 @@ public class UsersController : ControllerBase
         return Ok(new { token });
     }
 
-    [HttpGet("Users")]
+    [HttpGet("All")]
     [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()

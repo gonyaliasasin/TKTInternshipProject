@@ -19,14 +19,14 @@ public static class TaskMapper
     }
 
     // DTO --> Entity (Create)
-    public static TaskItem ToEntity(TaskCreateDTO dto, Guid createdByUserId)
+    public static TaskItem ToEntity(TaskCreateDTO dto, Guid createdByUserId, Guid assignedDepartmentId)
     {
         return new TaskItem
         {
             Title = dto.Title,
             Description = dto.Description,
             Status = Status.Pending,
-            AssignedDepartmentId = dto.AssignedDepartmentId,
+            AssignedDepartmentId = assignedDepartmentId,
             CreatedByUserId = createdByUserId,
             CreatedAt = DateTime.UtcNow
         };
