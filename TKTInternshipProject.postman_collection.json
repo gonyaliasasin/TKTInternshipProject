@@ -1,0 +1,363 @@
+{
+	"info": {
+		"_postman_id": "ee0a2339-582f-43f4-a631-44b526649aaf",
+		"name": "TKTInternshipProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46931471",
+		"_collection_link": "https://warped-escape-3990331.postman.co/workspace/Abdullah-O%C4%9Ful's-Workspace~df863228-aace-44b9-8757-ca34fdc0f378/collection/46931471-ee0a2339-582f-43f4-a631-44b526649aaf?action=share&source=collection_link&creator=46931471"
+	},
+	"item": [
+		{
+			"name": "Users/Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"mary@company.com\",\r\n    \"password\": \"mery1234!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Users/Login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Users",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users/All",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/Users/All",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Users",
+						"All"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URL}}/Tasks/All",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"All"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/CreatedByMe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/Tasks/CreatedByMe",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"CreatedByMe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/MyDepartment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Tasks/MyDepartment",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"MyDepartment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AssignedDepartmentId\": \"FD9E1927-BAAA-4D65-8380-F7B0CB35BEED\",\r\n    \"Title\": \"Marketing Deneme\",\r\n    \"Description\": \"Sütleri pazarlayın adamın canını sıkmayın\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Tasks/Create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"Create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/UpdateTaskByMe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": \"0960d93b-c1f7-4137-95e9-08dde604bb55\",\r\n    \"description\": \"Patch Denemesi Yapmaya Çalışıyorum\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Tasks/UpdateTaskByMe",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"UpdateTaskByMe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/DeleteTaskByMe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": \"0960D93B-C1F7-4137-95E9-08DDE604BB55\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Tasks/DeleteTaskByMe",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"DeleteTaskByMe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks/UpdateStatusByDepartment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\":\"b120cb44-7670-407f-5a05-08dde62a20d8\",\r\n    \"Status\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Tasks/UpdateStatusByDepartment",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Tasks",
+						"UpdateStatusByDepartment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
