@@ -1,4 +1,4 @@
-namespace Taskms.Api.Controllers;
+namespace TktInternshipProject.Controllers;
 
 [Route("Users")]
 [ApiController]

@@ -1,4 +1,4 @@
-namespace Taskms.Api.Models.Entities;
+namespace TktInternshipProject.Models.Entities;
 
 public class User : BaseEntity
 {

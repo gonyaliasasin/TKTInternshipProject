@@ -1,4 +1,4 @@
-namespace Taskms.Api.Data
+namespace TktInternshipProject.Data
 {
     public class ApplicationDbContext : DbContext
     {

@@ -1,8 +1,8 @@
-global using Taskms.Api.Models.DTOs;
-global using Taskms.Api.Models.Entities;
-global using Taskms.Api.Data;
-global using Taskms.Api.Mappers;
-global using Taskms.Api.Services;
+global using TktInternshipProject.Models.DTOs;
+global using TktInternshipProject.Models.Entities;
+global using TktInternshipProject.Data;
+global using TktInternshipProject.Mappers;
+global using TktInternshipProject.Services;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.JsonPatch;
 global using Microsoft.AspNetCore.Mvc;

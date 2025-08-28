@@ -1,4 +1,4 @@
-namespace Taskms.Api.Models.DTOs;
+namespace TktInternshipProject.Models.DTOs;
 
 public class TaskUpdateDTO
 {

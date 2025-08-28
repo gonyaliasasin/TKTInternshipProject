@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Taskms.Api.Data;
+using TktInternshipProject.Data;
 
 #nullable disable
 
-namespace Taskms.Api.Migrations
+namespace TktInternshipProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250825091410_SecondMigration")]
@@ -25,7 +25,7 @@ namespace Taskms.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Taskms.Api.Models.Tables.Department", b =>
+            modelBuilder.Entity("TktInternshipProject.Models.Tables.Department", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace Taskms.Api.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Taskms.Api.Models.Tables.TaskItem", b =>
+            modelBuilder.Entity("TktInternshipProject.Models.Tables.TaskItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,7 +92,7 @@ namespace Taskms.Api.Migrations
                     b.ToTable("Tasks");
                 });
 
-            modelBuilder.Entity("Taskms.Api.Models.Tables.User", b =>
+            modelBuilder.Entity("TktInternshipProject.Models.Tables.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -145,15 +145,15 @@ namespace Taskms.Api.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Taskms.Api.Models.Tables.TaskItem", b =>
+            modelBuilder.Entity("TktInternshipProject.Models.Tables.TaskItem", b =>
                 {
-                    b.HasOne("Taskms.Api.Models.Tables.Department", "AssignedDepartment")
+                    b.HasOne("TktInternshipProject.Models.Tables.Department", "AssignedDepartment")
                         .WithMany()
                         .HasForeignKey("AssignedDepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Taskms.Api.Models.Tables.User", "CreatedByUser")
+                    b.HasOne("TktInternshipProject.Models.Tables.User", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedByUserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -164,9 +164,9 @@ namespace Taskms.Api.Migrations
                     b.Navigation("CreatedByUser");
                 });
 
-            modelBuilder.Entity("Taskms.Api.Models.Tables.User", b =>
+            modelBuilder.Entity("TktInternshipProject.Models.Tables.User", b =>
                 {
-                    b.HasOne("Taskms.Api.Models.Tables.Department", "Department")
+                    b.HasOne("TktInternshipProject.Models.Tables.Department", "Department")
                         .WithMany("Users")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -175,7 +175,7 @@ namespace Taskms.Api.Migrations
                     b.Navigation("Department");
                 });
 
-            modelBuilder.Entity("Taskms.Api.Models.Tables.Department", b =>
+            modelBuilder.Entity("TktInternshipProject.Models.Tables.Department", b =>
                 {
                     b.Navigation("Users");
                 });

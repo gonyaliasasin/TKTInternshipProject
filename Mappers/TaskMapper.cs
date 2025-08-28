@@ -1,4 +1,4 @@
-namespace Taskms.Api.Mappers;
+namespace TktInternshipProject.Mappers;
 
 public static class TaskMapper
 {

@@ -1,4 +1,4 @@
-namespace Taskms.Api.Services;
+namespace TktInternshipProject.Services;
 
 public interface IJwtService
 {

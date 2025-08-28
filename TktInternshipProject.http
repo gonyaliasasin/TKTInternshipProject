@@ -1,0 +1,6 @@
+@TktInternshipProject_HostAddress = http://localhost:5185
+
+GET {{TktInternshipProject_HostAddress}}/api/TaskMS
+Accept: application/json
+
+###

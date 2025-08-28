@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Taskms.Api.Migrations
+namespace TktInternshipProject.Migrations
 {
     /// <inheritdoc />
     public partial class ThirdMigration : Migration

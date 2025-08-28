@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Taskms.Api.Migrations
+namespace TktInternshipProject.Migrations
 {
     /// <inheritdoc />
     public partial class FourthMigration : Migration
